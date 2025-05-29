@@ -12,11 +12,10 @@ app.config.from_object(Config)
 db= SQLAlchemy(app)
 jwt= JWTManager(app)
 
+from routes import *
 @app.before_first_request
 def create_tables():
     db.create_all()
-
-from routes import *
-
+    
 #if __name__ == '__main__':
 #    app.run(debug=app.config['DEBUG'])
