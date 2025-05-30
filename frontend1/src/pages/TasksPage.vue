@@ -11,7 +11,8 @@ const dueDate = ref('')
 const fetchTasks = async () => {
   try {
     const token = localStorage.getItem('token')
-    const response = await fetch('http://localhost:5000/tasks', {
+    const API_URL = import.meta.env.VITE_API_URL;
+    const response = await fetch(`${API_URL}/tasks`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
